@@ -72,15 +72,14 @@ class Gameplay {
       level: this.level,
       time: this.time,
       score: this.score(),
-      status: 1,
+      status: 0,
     };
     this.save();
     this.update();
   }
 
   score() {
-    // write score calculating
-    return 0;
+    return this.level * this.time + this.clicked;
   }
 
   save() {
@@ -95,7 +94,7 @@ class Gameplay {
       is_play: this.is_play,
       result: this.result,
       clicked: this.clicked,
-      maxClicked: this.maxClicked,
+      max_clicked: this.maxClicked,
     };
     global.io.emit('state', data);
   }

@@ -35,11 +35,12 @@ html(lang="en")
                             th score
                             th status
                     tbody
-                        tr
-                            td 1
-                            td 1
-                            td 999
-                            td Win
+                        each item in last
+                            tr
+                                td= item.id
+                                td= item.level
+                                td= item.score
+                                td= item.status === 1 ? 'win' : 'loser'
         script(src="/assets/vue.min.js")
         script(src="/socket.io/socket.io.js")
         script(src="/assets/admin.js")
